@@ -1,16 +1,33 @@
-// Karma configuration for working with sw-mocha in a setup with Mocha, Chai and Sinon.
+// Karma configuration for working with serviceworker-jasmine
 
 module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
+    // This is must be the directory root so that node_modules is served from /base. If it isn't, this doesn't work
     basePath: '../',
 
 
     // frameworks to use
-    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['sw-mocha', 'sinon', 'chai'],
+    frameworks: ['serviceworker-jasmine'],
 
+    // You need to pass through the tests that you want to be run directly to the client, 
+    // as well as specifying them in the files part of the config
+    client: {
+        'serviceworker-jasmine': {
+            SW_TESTS: [
+                'samples/serviceworker.test.js'
+            ]
+        }
+
+    },
+
+    // Allows service workers access to the full scope, so that they can capture fetch events if you should trigger some
+    customHeaders: [{
+        match: '.*.html',
+        name: 'Service-Worker-Allowed',
+        value: '/'
+    }],
 
     // list of files / patterns to load in the browser
     files: [
@@ -54,17 +71,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'NightlySW'],
-
-    customLaunchers: {
-      'NightlySW': {
-        base: 'FirefoxNightly',
-        prefs: {
-          'devtools.serviceWorkers.testing.enabled': true,
-          'dom.serviceWorkers.enabled': true
-        }
-      }
-    },
+    browsers: ['Chrome', 'Firefox'],
 
 
     // Continuous Integration mode

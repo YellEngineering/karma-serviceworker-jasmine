@@ -2,7 +2,7 @@
   "name": "karma-serviceworker-jasmine",
   "version": "0.0.1",
   "description": "A Karma framework for running Jasmine unit tests in a service worker context",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

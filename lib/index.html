@@ -1,38 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <script type="text/javascript">
-      navigator.serviceWorker.register(
-        '/base/node_modules/karma-sw-mocha/lib/testrunner.sw.js'
-      )
-      .then(console.log.bind(console, 'Test runner installed!'))
-      .catch(console.error.bind(console, 'Some bad happened!'));
+	<head>
+		<script type="text/javascript">
+			navigator.serviceWorker.register('/base/node_modules/karma-serviceworker-jasmine/lib/testrunner.sw.js')
+				.then(console.log.bind(console, 'Test service worker installed!'))
+				.catch(console.error.bind(console, 'Test service worker failed to install'));
 
-      navigator.serviceWorker.addEventListener('message', handleMessage);
+			navigator.serviceWorker.addEventListener('message', handleMessage);
 
-      function handleMessage(evt) {
-        if (evt.data.command === 'waitForTests') {
-          navigator.serviceWorker.controller.postMessage(window.frameElement.getAttribute('data-teststoload'));
-        } else {
-          execKarmaMethod(evt);
-        }
-      }
+			function handleMessage(evt) {
+				if (evt.data.command === 'waitForTests') {
+					var specsToTest = window.parent.__karma__.config['serviceworker-jasmine'].SW_TESTS;
+					navigator.serviceWorker.controller.postMessage(specsToTest);
+				} else {
+					execKarmaMethod(evt);
+				}
+			}
 
-      function execKarmaMethod(evt) {
-        var msg = evt.data;
-        console.log(msg);
-        var tc = window.parent.__karma__;
-        tc[msg.command].apply(tc, msg.args);
-        if (msg.command === 'complete') {
-          navigator.serviceWorker.getRegistration()
-          .then(function (reg) {
-            reg.unregister();
-            console.log('Test runner uninstalled!');
-          });
-        }
-      }
-  </script>
-</head>
-<body>
-</body>
+			function execKarmaMethod(evt) {
+				var msg = evt.data;
+				console.log(msg);
+				var tc = window.parent.__karma__;
+				tc[msg.command].apply(tc, msg.args);
+				if (msg.command === 'complete') {
+					navigator.serviceWorker.getRegistration().then(function (reg) {
+						reg.unregister();
+						console.log('Test service worker uninstalled!');
+					});
+				}
+			}
+	  </script>
+	</head>
+	<body>
+	</body>
 </html>
