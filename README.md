@@ -1,6 +1,8 @@
 # karma-serviceworker-jasmine
 A Karma plug-in/framework for Jasmine testing when running inside a ServiceWorker.
 
+[![npm version](https://badge.fury.io/js/karma-serviceworker-jasmine.svg)](https://badge.fury.io/js/karma-serviceworker-jasmine)
+
 ## What is karma-serviceworker-jasmine for?
 Karma-serviceworker-jasmine should be employed for performing tests in a [ServiceWorkerGlobalScope](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope) and not in a window environment. It is not to test interceptions, nor performing integration tests between your client code and your service worker. It will simply run your code inside a special service worker and will warry about comunicating the results of the testing to the Karma reporter.
 
@@ -46,7 +48,7 @@ client: {
 
 In [`samples`](https://github.com/steveworkman/karma-serviceworker-jasmine/tree/master/samples) you will find sample files for the Karma configuration file and `serviceworker.test.js` to set up the environment.
 
-It is really important that ```the basePath``` property is set to the root of the project that you're working on, where your node_modules are stored. If it is not, this framework will not load correctly and this will not work. 
+It is really important that the ```basePath``` property is set to the root of the project that you're working on, where your node_modules are stored. If it is not, this framework will not load correctly and this will not work. 
 
 ## Browser support
 At the time of writing, Chrome, Firefox, Opera and Samsung Internet support service workers. See this [compatibility table](https://jakearchibald.github.io/isserviceworkerready/) for the most up to date information. **PhantomJS** is not supported and is highly unlikely to ever be supported.
