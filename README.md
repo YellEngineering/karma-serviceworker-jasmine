@@ -55,4 +55,4 @@ For headless support, try [SlimerJS](https://github.com/laurentj/slimerjs) ([run
 
 ## License
 
-This work is © Yell Limited and is licensed under the [MIT license](https://github.com/YellEngineering/karma-serviceworker-jasmine/LICENSE.txt)
+This work is © Yell Limited and is licensed under the [MIT license](https://github.com/YellEngineering/karma-serviceworker-jasmine/blob/master/LICENSE.txt)
