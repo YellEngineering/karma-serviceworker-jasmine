@@ -1,6 +1,6 @@
 {
   "name": "karma-serviceworker-jasmine",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A Karma framework for running Jasmine unit tests in a service worker context",
   "main": "lib/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/steveworkman/karma-serviceworker-jasmine.git"
+    "url": "git+https://github.com/YellEngineering/karma-serviceworker-jasmine.git"
   },
   "keywords": [
     "karma-plugin",
@@ -16,10 +16,10 @@
     "serviceworker",
     "jasmine"
   ],
-  "author": "Steve Workman",
-  "license": "UNLICENSED",
+  "author": "Yell Engineering",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/steveworkman/karma-serviceworker-jasmine/issues"
+    "url": "https://github.com/YellEngineering/karma-serviceworker-jasmine/issues"
   },
-  "homepage": "https://github.com/steveworkman/karma-serviceworker-jasmine#readme"
+  "homepage": "https://github.com/YellEngineering/karma-serviceworker-jasmine#readme"
 }

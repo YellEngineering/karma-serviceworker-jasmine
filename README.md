@@ -52,3 +52,7 @@ It is really important that ```the basePath``` property is set to the root of th
 At the time of writing, Chrome, Firefox, Opera and Samsung Internet support service workers. See this [compatibility table](https://jakearchibald.github.io/isserviceworkerready/) for the most up to date information. **PhantomJS** is not supported and is highly unlikely to ever be supported.
 
 For headless support, try [SlimerJS](https://github.com/laurentj/slimerjs) ([runner](https://github.com/karma-runner/karma-slimerjs-launcher)) or, if you're feeling lucky, [Raw Chromium for Linux](https://download-chromium.appspot.com/) with --headless and --disable-gpu flags set. Track the Chrome Headless project [here](https://bugs.chromium.org/p/chromium/issues/detail?id=546953)
+
+## License
+
+This work is © Yell Limited and is licensed under the [MIT license](https://github.com/YellEngineering/karma-serviceworker-jasmine/LICENSE.txt)
